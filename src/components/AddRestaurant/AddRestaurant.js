@@ -1,12 +1,16 @@
 import React, { useState, useContext } from "react";
+import { useDispatch } from "react-redux";
 import RestaurantsFinder from "../../apis/RestaurantsFinder";
 import { RestaurantsContext } from "../../context/RestaurantContext";
-const AddRestaurant = () => {
-	const { addRestaurant } = useContext(RestaurantsContext);
+import * as action from "../../store/actions/index";
 
+const AddRestaurant = () => {
+	//const { addRestaurant } = useContext(RestaurantsContext);
 	const [name, setName] = useState("");
 	const [location, setLocation] = useState("");
 	const [priceRange, setPriceRange] = useState("Price Range");
+
+	const dispatch = useDispatch();
 
 	const handleSubmit = async (e) => {
 		//stop reloading
@@ -19,7 +23,8 @@ const AddRestaurant = () => {
 				location: location,
 				price_range: priceRange,
 			});
-			addRestaurant(response.data.data.restaurant);
+			//addRestaurant(response.data.data.restaurant);
+			dispatch(action.addRestaurant(response.data.data.restaurant));
 			console.log(response);
 			//the response returns values since on our backend we made sure to
 			//return that restaurant in psql using 'returning *'

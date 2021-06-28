@@ -5,17 +5,24 @@ import StarRating from "../components/StarRating/StarRating";
 import Reviews from "../components/Reviews/Reviews";
 import AddReview from "../components/AddReview/AddReview";
 import { RestaurantsContext } from "../context/RestaurantContext";
+import { useSelector, useDispatch } from "react-redux";
+import * as action from "../store/actions/index";
 
 const Details = () => {
+	const selectedRestaurant = useSelector(
+		(state) => state.restaurants.selectedRestaurant
+	);
+	const dispatch = useDispatch();
+
 	const { id } = useParams();
-	const { selectedRestaurant, setSelectedRestaurant } =
-		useContext(RestaurantsContext);
+	//const { selectedRestaurant, setSelectedRestaurant } = useContext(RestaurantsContext);
 
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
 				const response = await RestaurantsFinder.get(`/${id}`);
-				setSelectedRestaurant(response.data.data);
+				dispatch(action.newSelectedRestaurant(response.data.data));
+				//setSelectedRestaurant(response.data.data);
 			} catch (error) {
 				console.error(error);
 			}

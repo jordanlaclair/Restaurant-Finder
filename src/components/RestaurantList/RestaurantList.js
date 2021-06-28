@@ -2,16 +2,26 @@ import React, { useEffect, useContext } from "react";
 import RestaurantsFinder from "../../apis/RestaurantsFinder";
 import { RestaurantsContext } from "../../context/RestaurantContext";
 import { useHistory } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import * as action from "../../store/actions/index";
 import "./restaurantList.scss";
+
 const RestaurantList = () => {
-	const { restaurants, setRestaurants } = useContext(RestaurantsContext);
+	//const { restaurants, setRestaurants } = useContext(RestaurantsContext);
+	//state.restaurants is a set of state in our store, state.restaurants.restaurants are the actual restaurants
+	const restaurants = useSelector((state) => state.restaurants.restaurants);
+	//console.log(restaurants);
+	const dispatch = useDispatch();
+
 	let history = useHistory();
 	useEffect(() => {
 		try {
 			async function fetchData() {
 				const response = await RestaurantsFinder.get("/");
-				//console.log(response.data.data.restaurants);
-				setRestaurants(response.data.data.restaurants);
+				console.log(response.data.data.restaurants);
+
+				//setRestaurants(response.data.data.restaurants);
+				dispatch(action.setRestaurants(response.data.data.restaurants));
 			}
 			fetchData();
 		} catch (error) {
@@ -19,7 +29,7 @@ const RestaurantList = () => {
 		}
 	}, []);
 
-	const handleDelete = async (e, id) => {
+	/* const handleDelete = async (e, id) => {
 		e.stopPropagation();
 
 		try {
@@ -34,7 +44,7 @@ const RestaurantList = () => {
 			console.error(error);
 		}
 	};
-
+ */
 	const handleUpdate = (e, id) => {
 		e.stopPropagation();
 		history.push(`/restaurants/${id}/update`);
@@ -83,12 +93,7 @@ const RestaurantList = () => {
 										</button>
 									</td>
 									<td>
-										<button
-											onClick={(e) => {
-												handleDelete(e, restaurant.id);
-											}}
-											className="btn btn-danger"
-										>
+										<button onClick={(e) => {}} className="btn btn-danger">
 											Delete
 										</button>
 									</td>
