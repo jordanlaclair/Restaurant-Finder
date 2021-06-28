@@ -33,6 +33,7 @@ const Details = () => {
 		<div>
 			{selectedRestaurant && (
 				<>
+					<h1 className="text-center display-1">{selectedRestaurant.name}</h1>
 					<div className="mt-3 container">
 						<Reviews reviews={selectedRestaurant.reviews} />
 					</div>
