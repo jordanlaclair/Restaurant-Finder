@@ -29,22 +29,26 @@ const RestaurantList = () => {
 		}
 	}, []);
 
-	/* const handleDelete = async (e, id) => {
+	const handleDelete = async (e, id) => {
 		e.stopPropagation();
 
 		try {
 			const response = await RestaurantsFinder.delete(`/${id}`);
-			setRestaurants(
+			//dispatch(action.removeRestaurant(id));
+
+			/* setRestaurants(
 				restaurants.filter((restaurant) => {
 					return restaurant.id !== id;
 				})
-			);
-			console.log(response);
+			); */
+			console.log(id);
+			dispatch(action.removeRestaurant(id));
+			//console.log(response);
 		} catch (error) {
 			console.error(error);
 		}
 	};
- */
+
 	const handleUpdate = (e, id) => {
 		e.stopPropagation();
 		history.push(`/restaurants/${id}/update`);
@@ -93,7 +97,12 @@ const RestaurantList = () => {
 										</button>
 									</td>
 									<td>
-										<button onClick={(e) => {}} className="btn btn-danger">
+										<button
+											onClick={(e) => {
+												handleDelete(e, restaurant.id);
+											}}
+											className="btn btn-danger"
+										>
 											Delete
 										</button>
 									</td>

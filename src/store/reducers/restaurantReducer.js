@@ -52,7 +52,7 @@ const reducer = (state = initialState, action) => {
 			return {
 				...state,
 				restaurants: state.restaurants.filter((restaurant) => {
-					return state.restaurant.action.value !== action.value;
+					return restaurant.id !== action.value;
 				}),
 			};
 		case actionTypes.NEW_SELECTED_RESTAURANT:
