@@ -1,7 +1,6 @@
 import React, { useState, useContext } from "react";
 import { useDispatch } from "react-redux";
 import RestaurantsFinder from "../../apis/RestaurantsFinder";
-import { RestaurantsContext } from "../../context/RestaurantContext";
 import * as action from "../../store/actions/index";
 
 const AddRestaurant = () => {

@@ -1,10 +1,8 @@
-import React, { useContext, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import RestaurantsFinder from "../apis/RestaurantsFinder";
-import StarRating from "../components/StarRating/StarRating";
 import Reviews from "../components/Reviews/Reviews";
 import AddReview from "../components/AddReview/AddReview";
-import { RestaurantsContext } from "../context/RestaurantContext";
 import { useSelector, useDispatch } from "react-redux";
 import * as action from "../store/actions/index";
 

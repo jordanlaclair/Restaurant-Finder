@@ -1,6 +1,5 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect } from "react";
 import RestaurantsFinder from "../../apis/RestaurantsFinder";
-import { RestaurantsContext } from "../../context/RestaurantContext";
 import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import * as action from "../../store/actions/index";
