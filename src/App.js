@@ -6,7 +6,7 @@ import Details from "./routes/Details";
 
 function App() {
 	return (
-		<div className="App ">
+		<div className="app">
 			<BrowserRouter>
 				{/* The Switch is so if we find our route, we stop there */}
 				<Switch>

@@ -71,59 +71,61 @@ const RestaurantList = () => {
 					</div>
 				</div>
 			) : (
-				<table className="table table-hover table-striped">
-					<thead className="table-dark">
-						<tr>
-							<th scope="col">Restaurant</th>
-							<th scope="col">Location</th>
-							<th scope="col">Price Range</th>
-							<th scope="col">Ratings</th>
-							<th scope="col">Edit</th>
-							<th scope="col">Delete</th>
-						</tr>
-					</thead>
-					<tbody>
-						{restaurants &&
-							restaurants.map((restaurant) => {
-								return (
-									<tr
-										onClick={() => {
-											handleRestaurantSelect(restaurant.id);
-										}}
-										key={restaurant.id}
-										className="--cursor-pointer"
-									>
-										<th scope="row">{restaurant.name}</th>
-										<td>{restaurant.location}</td>
-										<td className="fw-bold">
-											{"$".repeat(restaurant.price_range)}
-										</td>
-										<td>@</td>
-										<td>
-											<button
-												onClick={(e) => {
-													handleUpdate(e, restaurant.id);
-												}}
-												className="btn btn-primary"
-											>
-												Update
-											</button>
-										</td>
-										<td>
-											<button
-												onClick={(e) => {
-													handleDelete(e, restaurant.id);
-												}}
-												className="btn btn-danger"
-											>
-												Delete
-											</button>
-										</td>
-									</tr>
-								);
-							})}
-					</tbody>
-				</table>
+				<div className="table table-responsive-sm">
+					<table className="table table-hover table-striped">
+						<thead className="table-dark">
+							<tr>
+								<th scope="col">Restaurant</th>
+								<th scope="col">Location</th>
+								<th scope="col">Price Range</th>
+								<th scope="col">Ratings</th>
+								<th scope="col">Edit</th>
+								<th scope="col">Delete</th>
+							</tr>
+						</thead>
+						<tbody>
+							{restaurants &&
+								restaurants.map((restaurant) => {
+									return (
+										<tr
+											onClick={() => {
+												handleRestaurantSelect(restaurant.id);
+											}}
+											key={restaurant.id}
+											className="--cursor-pointer"
+										>
+											<th scope="row">{restaurant.name}</th>
+											<td className="fw-bold">{restaurant.location}</td>
+											<td className="fw-bold">
+												{"$".repeat(restaurant.price_range)}
+											</td>
+											<td className="fw-bold">@</td>
+											<td>
+												<button
+													onClick={(e) => {
+														handleUpdate(e, restaurant.id);
+													}}
+													className="btn btn-primary"
+												>
+													Update
+												</button>
+											</td>
+											<td>
+												<button
+													onClick={(e) => {
+														handleDelete(e, restaurant.id);
+													}}
+													className="btn btn-danger"
+												>
+													Delete
+												</button>
+											</td>
+										</tr>
+									);
+								})}
+						</tbody>
+					</table>
+				</div>
 			)}
 		</div>
 	);

@@ -1,0 +1,48 @@
+@import "../../assets/styles/_mixins.scss";
+
+.bottom {
+	position: fixed;
+	bottom: -5%;
+	left: -4%;
+	width: auto;
+	height: 20vh;
+	max-height: 100%;
+	background-color: transparent;
+	overflow: hidden;
+
+	&__circle__img {
+		animation: spin 4s linear infinite;
+		-webkit-animation: spin 4s linear infinite;
+		font-size: 18rem;
+		color: black;
+		overflow: hidden;
+		@include mdMaxBreakPoint {
+			font-size: 14rem;
+		}
+	}
+}
+
+@-moz-keyframes spin {
+	from {
+		-moz-transform: rotate(0deg);
+	}
+	to {
+		-moz-transform: rotate(360deg);
+	}
+}
+@-webkit-keyframes spin {
+	from {
+		-webkit-transform: rotate(0deg);
+	}
+	to {
+		-webkit-transform: rotate(360deg);
+	}
+}
+@keyframes spin {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
