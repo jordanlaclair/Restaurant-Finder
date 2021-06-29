@@ -41,43 +41,55 @@ const UpdateRestaurant = () => {
 	};
 
 	return (
-		<div>
+		<div className="container ">
 			<form action="">
-				<div className="form-group">
-					<label htmlFor="name">Name</label>
-					<input
-						value={name}
-						onChange={(e) => {
-							setName(e.target.value);
-						}}
-						id="name"
-						className="form-control"
-						type="text"
-					/>
+				<div className="mb-3 row">
+					<label className="col-sm-2 col-form-label" htmlFor="name">
+						Name
+					</label>
+					<div className="col-sm-10">
+						<input
+							value={name}
+							onChange={(e) => {
+								setName(e.target.value);
+							}}
+							id="name"
+							className="form-control"
+							type="text"
+						/>
+					</div>
 				</div>
-				<div className="form-group">
-					<label htmlFor="location">Location</label>
-					<input
-						value={location}
-						onChange={(e) => {
-							setLocation(e.target.value);
-						}}
-						id="location"
-						className="form-control"
-						type="text"
-					/>
+				<div className="mb-3 row">
+					<label className="col-sm-2 col-form-label" htmlFor="location">
+						Location
+					</label>
+					<div className="col-sm-10">
+						<input
+							value={location}
+							onChange={(e) => {
+								setLocation(e.target.value);
+							}}
+							id="location"
+							className="form-control"
+							type="text"
+						/>
+					</div>
 				</div>
-				<div className="form-group">
-					<label htmlFor="price_range">Price Range</label>
-					<input
-						value={price}
-						onChange={(e) => {
-							setPrice(e.target.value);
-						}}
-						id="price_range"
-						className="form-control"
-						type="text"
-					/>
+				<div className=" mb-3 row ">
+					<label className="col-sm-2 col-form-label" htmlFor="price_range">
+						Price Range
+					</label>
+					<div className="col-sm-10">
+						<input
+							value={price}
+							onChange={(e) => {
+								setPrice(e.target.value);
+							}}
+							id="price_range"
+							className="form-control"
+							type="text"
+						/>
+					</div>
 				</div>
 				<button
 					type="submit"

@@ -33,7 +33,26 @@ const Details = () => {
 		<div>
 			{selectedRestaurant && (
 				<>
-					<h1 className="text-center display-1">{selectedRestaurant.name}</h1>
+					<div className="d-flex flex-column justify-content-center align-items-center">
+						<h1 className="display-2">{selectedRestaurant.restaurant.name}</h1>
+						<div className="d-flex justify-content-center align-items-center">
+							<div className="me-2">
+								<h2 className="display-6">
+									{selectedRestaurant.restaurant.location}
+								</h2>
+							</div>
+
+							<div className="me-2" style={{ fontSize: "5px" }}>
+								<i className="fas fa-circle"></i>
+							</div>
+
+							<div className="me-1">
+								<h2 className="display-8 fw-light m-0">
+									{"$".repeat(selectedRestaurant.restaurant.price_range)}
+								</h2>
+							</div>
+						</div>
+					</div>
 					<div className="mt-3 container">
 						<Reviews reviews={selectedRestaurant.reviews} />
 					</div>

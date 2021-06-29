@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { useDispatch } from "react-redux";
 import RestaurantsFinder from "../../apis/RestaurantsFinder";
 import * as action from "../../store/actions/index";
-
+import "./addrestaurant.scss";
 const AddRestaurant = () => {
 	//const { addRestaurant } = useContext(RestaurantsContext);
 	const [name, setName] = useState("");
@@ -35,57 +35,55 @@ const AddRestaurant = () => {
 	return (
 		<div className="container mb-4">
 			<form autocomplete="off" action="">
-				<div className="form-row">
-					<div className="row justify-content-center align-items-center">
-						<div className="col-3">
-							<input
-								autoComplete="off"
-								type="text"
-								value={name}
-								onChange={(e) => {
-									setName(e.target.value);
-								}}
-								placeholder="Name"
-								className="form-control"
-							/>
-						</div>
-						<div className="col-3">
-							<input
-								autoComplete="off"
-								placeholder="Location"
-								value={location}
-								onChange={(e) => {
-									setLocation(e.target.value);
-								}}
-								type="text"
-								className="form-control"
-							/>
-						</div>
-						<div className="col-3">
-							<select
-								value={priceRange}
-								onChange={(e) => {
-									setPriceRange(e.target.value);
-								}}
-								className="form-select my-1 mr-sm-2"
+				<div className="row justify-content-center align-items-center">
+					<div className="col-3">
+						<input
+							autoComplete="off"
+							type="text"
+							value={name}
+							onChange={(e) => {
+								setName(e.target.value);
+							}}
+							placeholder="Name"
+							className="form-control"
+						/>
+					</div>
+					<div className="col-3">
+						<input
+							autoComplete="off"
+							placeholder="Location"
+							value={location}
+							onChange={(e) => {
+								setLocation(e.target.value);
+							}}
+							type="text"
+							className="form-control"
+						/>
+					</div>
+					<div className="col-3">
+						<select
+							value={priceRange}
+							onChange={(e) => {
+								setPriceRange(e.target.value);
+							}}
+							className="form-select my-1 mr-sm-2"
+						>
+							<option disabled>Price Range</option>
+							<option value="1">$</option>
+							<option value="2">$$</option>
+							<option value="3">$$$</option>
+							<option value="4">$$$$</option>
+						</select>
+					</div>
+					<div className=" col-3  col-sm-1">
+						<div className="m-0 p-0">
+							<button
+								type="submit"
+								onClick={handleSubmit}
+								className="btn btn-dark"
 							>
-								<option disabled>Price Range</option>
-								<option value="1">$</option>
-								<option value="2">$$</option>
-								<option value="3">$$$</option>
-								<option value="4">$$$$</option>
-							</select>
-						</div>
-						<div className="col-1">
-							<div className="m-0 p-0">
-								<button
-									type="submit"
-									onClick={handleSubmit}
-									className="btn btn-dark"
-								>
-									Add
-								</button>
-							</div>
+								Add
+							</button>
 						</div>
 					</div>
 				</div>

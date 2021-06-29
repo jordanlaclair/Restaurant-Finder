@@ -58,58 +58,73 @@ const RestaurantList = () => {
 	};
 
 	return (
-		<div className="container">
-			<table className="table table-hover table-striped">
-				<thead className="table-dark">
-					<tr>
-						<th scope="col">Restaurant</th>
-						<th scope="col">Location</th>
-						<th scope="col">Price Range</th>
-						<th scope="col">Ratings</th>
-						<th scope="col">Edit</th>
-						<th scope="col">Delete</th>
-					</tr>
-				</thead>
-				<tbody>
-					{restaurants &&
-						restaurants.map((restaurant) => {
-							return (
-								<tr
-									onClick={() => {
-										handleRestaurantSelect(restaurant.id);
-									}}
-									key={restaurant.id}
-									className="--cursor-pointer"
-								>
-									<th scope="row">{restaurant.name}</th>
-									<td>{restaurant.location}</td>
-									<td>{"$".repeat(restaurant.price_range)}</td>
-									<td>@</td>
-									<td>
-										<button
-											onClick={(e) => {
-												handleUpdate(e, restaurant.id);
-											}}
-											className="btn btn-primary"
-										>
-											Update
-										</button>
-									</td>
-									<td>
-										<button
-											onClick={(e) => {
-												handleDelete(e, restaurant.id);
-											}}
-											className="btn btn-danger"
-										>
-											Delete
-										</button>
-									</td>
-								</tr>
-							);
-						})}
-				</tbody>
-			</table>
+		<div className="container d-flex justify-content-center align-items-center">
+			{restaurants.length == 0 ? (
+				<div className="d-flex flex-column justify-content-center align-items-center mt-5">
+					<h1 className="text-center">Sorry! No restaurants were found!</h1>
+					<div
+						className="spinner-border mt-5"
+						role="status"
+						style={{ width: "3rem", height: "3rem" }}
+					>
+						<span className="visually-hidden">Loading...</span>
+					</div>
+				</div>
+			) : (
+				<table className="table table-hover table-striped">
+					<thead className="table-dark">
+						<tr>
+							<th scope="col">Restaurant</th>
+							<th scope="col">Location</th>
+							<th scope="col">Price Range</th>
+							<th scope="col">Ratings</th>
+							<th scope="col">Edit</th>
+							<th scope="col">Delete</th>
+						</tr>
+					</thead>
+					<tbody>
+						{restaurants &&
+							restaurants.map((restaurant) => {
+								return (
+									<tr
+										onClick={() => {
+											handleRestaurantSelect(restaurant.id);
+										}}
+										key={restaurant.id}
+										className="--cursor-pointer"
+									>
+										<th scope="row">{restaurant.name}</th>
+										<td>{restaurant.location}</td>
+										<td className="fw-bold">
+											{"$".repeat(restaurant.price_range)}
+										</td>
+										<td>@</td>
+										<td>
+											<button
+												onClick={(e) => {
+													handleUpdate(e, restaurant.id);
+												}}
+												className="btn btn-primary"
+											>
+												Update
+											</button>
+										</td>
+										<td>
+											<button
+												onClick={(e) => {
+													handleDelete(e, restaurant.id);
+												}}
+												className="btn btn-danger"
+											>
+												Delete
+											</button>
+										</td>
+									</tr>
+								);
+							})}
+					</tbody>
+				</table>
+			)}
 		</div>
 	);
 };
