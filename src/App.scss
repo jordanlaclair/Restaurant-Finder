@@ -1,4 +1,4 @@
-@import "./assets/styles/colors";
+@import "./assets/styles/variables";
 
 .app {
 	text-align: center;
@@ -36,4 +36,11 @@
 	%bigFont {
 		color: $title-color;
 	}
+}
+
+:root,
+body,
+html {
+	min-width: 100vw;
+	height: 100vh;
 }

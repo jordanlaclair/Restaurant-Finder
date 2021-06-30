@@ -1,48 +1,58 @@
 @import "../../assets/styles/_mixins.scss";
 
-.bottom {
+.background__picture1 {
 	position: fixed;
-	bottom: -5%;
-	left: -4%;
-	width: auto;
-	height: 20vh;
-	max-height: 100%;
+	top: 50%;
+	left: 5%;
+	height: auto;
+	width: 500px;
 	background-color: transparent;
-	overflow: hidden;
-
-	&__circle__img {
-		animation: spin 4s linear infinite;
-		-webkit-animation: spin 4s linear infinite;
-		font-size: 18rem;
-		color: black;
-		overflow: hidden;
-		@include mdMaxBreakPoint {
-			font-size: 14rem;
-		}
+	// 75% of original size
+	@include smMaxBreakPoint {
+		display: none;
+	}
+	#left_table,
+	#right_table,
+	#bottom_table {
+		animation: floating 3s ease-in-out infinite;
+	}
+	&__svg {
+		display: block;
+		width: 100%;
+		height: auto;
 	}
 }
 
-@-moz-keyframes spin {
-	from {
-		-moz-transform: rotate(0deg);
+@-moz-keyframes floating {
+	0% {
+		transform: translate(0, 0px);
 	}
-	to {
-		-moz-transform: rotate(360deg);
+	50% {
+		transform: translate(0, 15px);
 	}
-}
-@-webkit-keyframes spin {
-	from {
-		-webkit-transform: rotate(0deg);
-	}
-	to {
-		-webkit-transform: rotate(360deg);
+	100% {
+		transform: translate(0, -0px);
 	}
 }
-@keyframes spin {
-	from {
-		transform: rotate(0deg);
+@-webkit-keyframes floating {
+	0% {
+		transform: translate(0, 0px);
 	}
-	to {
-		transform: rotate(360deg);
+	50% {
+		transform: translate(0, 15px);
+	}
+	100% {
+		transform: translate(0, -0px);
+	}
+}
+@keyframes floating {
+	0% {
+		transform: translate(0, 0px);
+	}
+	50% {
+		transform: translate(0, 15px);
+	}
+	100% {
+		transform: translate(0, -0px);
 	}
 }
