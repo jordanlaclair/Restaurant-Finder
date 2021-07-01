@@ -40,8 +40,8 @@ const Details = () => {
 		<div>
 			{selectedRestaurant && !hidden ? (
 				<>
-					<div className="d-flex flex-column justify-content-center align-items-center --fade-In">
-						<h1 className="display-2">{selectedRestaurant.restaurant.name}</h1>
+					<div className="p-5 d-flex flex-column justify-content-center align-items-center --fade-In">
+						<h1 className=" display-2">{selectedRestaurant.restaurant.name}</h1>
 						<div className="d-flex justify-content-center align-items-center">
 							<div className="me-2">
 								<h2 className="display-6">
@@ -62,16 +62,19 @@ const Details = () => {
 							<div className="me-2" style={{ fontSize: "5px" }}>
 								<i className="fas fa-circle"></i>
 							</div>
-
-							<div className="me-1 ratings__wrapper text-warning">
-								<StarRating
-									rating={selectedRestaurant.restaurant.average_rating}
-								/>
-								<span>
-									{" "}
-									&nbsp; ({selectedRestaurant.restaurant.average_rating})
-								</span>
-							</div>
+							{selectedRestaurant.reviews.length > 0 ? (
+								<div className="me-1 ratings__wrapper text-warning">
+									<StarRating
+										rating={selectedRestaurant.restaurant.average_rating}
+									/>
+									<span>
+										{" "}
+										&nbsp; ({selectedRestaurant.restaurant.average_rating})
+									</span>
+								</div>
+							) : (
+								<div className="fs-4">No reviews yet!</div>
+							)}
 						</div>
 					</div>
 					<div className="mt-3 container">

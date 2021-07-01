@@ -2,32 +2,29 @@
 
 .background__picture1 {
 	position: fixed;
+	z-index: -1;
 	top: 50%;
-	left: 5%;
+	left: 2%;
 	height: auto;
-	width: 500px;
+	width: 400px;
 	background-color: transparent;
 	overflow: hidden;
 
-	#left_table,
-	#right_table,
-	#bottom_table {
+	@include customMaxBreakPoint(1900) {
+		display: none;
+	}
+
+	@include mdMaxHeightBreakPoint {
+		display: none;
+	}
+
+	#right_table {
 		animation: floating 3s ease-in-out infinite;
 	}
 	&__svg {
 		display: block;
 		width: 100%;
 		height: auto;
-	}
-
-	@include smMaxBreakPoint {
-		display: none;
-	}
-	@include xlMaxBreakPoint {
-		width: 400px;
-	}
-	@include mdMaxHeightBreakPoint {
-		display: none;
 	}
 }
 

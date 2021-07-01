@@ -85,7 +85,7 @@ const RestaurantList = () => {
 				</div>
 			) : (
 				<div className="table table-responsive-sm">
-					<table className="table table-hover table-striped">
+					<table className="table table-hover table-striped table-secondary">
 						<thead className="table-dark">
 							<tr>
 								<th scope="col">Restaurant</th>
