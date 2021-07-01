@@ -1,3 +1,21 @@
 %cursor-pointer {
 	cursor: pointer;
 }
+
+%--fade-In {
+	animation: fadeIn 1s linear 1;
+	-webkit-animation: fadeIn 1s linear 1;
+}
+
+%--big-Entrance {
+	animation-name: bigEntrance;
+	-webkit-animation-name: bigEntrance;
+
+	animation-duration: 1.6s;
+	-webkit-animation-duration: 1.6s;
+
+	animation-timing-function: ease-out;
+	-webkit-animation-timing-function: ease-out;
+
+	visibility: visible !important;
+}

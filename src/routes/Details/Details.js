@@ -1,21 +1,27 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import RestaurantsFinder from "../apis/RestaurantsFinder";
-import Reviews from "../components/Reviews/Reviews";
-import AddReview from "../components/AddReview/AddReview";
+import RestaurantsFinder from "../../apis/RestaurantsFinder";
+import Reviews from "../../components/Reviews/Reviews";
+import AddReview from "../../components/AddReview/AddReview";
 import { useSelector, useDispatch } from "react-redux";
-import * as action from "../store/actions/index";
+import * as action from "../../store/actions/index";
+import "./Details.scss";
 
 const Details = () => {
 	const selectedRestaurant = useSelector(
 		(state) => state.restaurants.selectedRestaurant
 	);
 	const dispatch = useDispatch();
+	const [hidden, setHidden] = useState(true);
 
 	const { id } = useParams();
 	//const { selectedRestaurant, setSelectedRestaurant } = useContext(RestaurantsContext);
 
 	useEffect(() => {
+		setTimeout(() => {
+			setHidden(false);
+		}, 100);
+
 		const fetchData = async () => {
 			try {
 				const response = await RestaurantsFinder.get(`/${id}`);
@@ -31,9 +37,9 @@ const Details = () => {
 
 	return (
 		<div>
-			{selectedRestaurant && (
+			{selectedRestaurant && !hidden ? (
 				<>
-					<div className="d-flex flex-column justify-content-center align-items-center">
+					<div className="d-flex flex-column justify-content-center align-items-center --fade-In">
 						<h1 className="display-2">{selectedRestaurant.restaurant.name}</h1>
 						<div className="d-flex justify-content-center align-items-center">
 							<div className="me-2">
@@ -58,7 +64,7 @@ const Details = () => {
 					</div>
 					<AddReview />
 				</>
-			)}
+			) : null}
 		</div>
 	);
 };

@@ -6,8 +6,20 @@
 	}
 }
 
+@mixin smMaxHeightBreakPoint {
+	@media (max-height: #{$screen-sm}) {
+		@content;
+	}
+}
+
 @mixin mdMaxBreakPoint {
 	@media (max-width: #{$screen-md}) {
+		@content;
+	}
+}
+
+@mixin mdMaxHeightBreakPoint {
+	@media (max-height: #{$screen-md}) {
 		@content;
 	}
 }
@@ -18,8 +30,19 @@
 	}
 }
 
+@mixin lgMaxHeightBreakPoint {
+	@media (max-height: #{$screen-lg}) {
+		@content;
+	}
+}
 @mixin xlMaxBreakPoint {
 	@media (max-width: #{$screen-xl}) {
+		@content;
+	}
+}
+
+@mixin xlMaxHeightBreakPoint {
+	@media (max-height: #{$screen-xl}) {
 		@content;
 	}
 }

@@ -3,7 +3,7 @@ import RestaurantsFinder from "../../apis/RestaurantsFinder";
 import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import * as action from "../../store/actions/index";
-import "./restaurantList.scss";
+import "./RestaurantList.scss";
 
 const RestaurantList = () => {
 	//const { restaurants, setRestaurants } = useContext(RestaurantsContext);

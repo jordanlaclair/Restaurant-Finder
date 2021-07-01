@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { useDispatch } from "react-redux";
 import RestaurantsFinder from "../../apis/RestaurantsFinder";
 import * as action from "../../store/actions/index";
-import "./addrestaurant.scss";
+import "./AddRestaurant.scss";
 const AddRestaurant = () => {
 	//const { addRestaurant } = useContext(RestaurantsContext);
 	const [name, setName] = useState("");

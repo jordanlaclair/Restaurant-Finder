@@ -1,8 +1,8 @@
 import "./App.scss";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import UpdatePage from "./routes/UpdatePage";
-import Home from "./routes/Home";
-import Details from "./routes/Details";
+import UpdatePage from "./routes/UpdatePage/UpdatePage";
+import Home from "./routes/Home/Home";
+import Details from "./routes/Details/Details";
 
 function App() {
 	return (

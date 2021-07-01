@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useHistory, useLocation, useParams } from "react-router-dom";
 import RestaurantsFinder from "../../apis/RestaurantsFinder";
-
+import "./AddReview.scss";
 const AddReview = () => {
 	//gives access to our url
 	const { id } = useParams();
@@ -29,7 +29,7 @@ const AddReview = () => {
 	};
 
 	return (
-		<div className="mb-2 mt-3 container">
+		<div className="mb-2 mt-3 container --fade-In">
 			<form action="">
 				<div className="d-flex justify-content-start">
 					<div className="d-flex flex-column  align-items-start col-7 me-4">

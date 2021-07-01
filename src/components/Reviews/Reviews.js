@@ -1,13 +1,13 @@
 import React from "react";
 import StarRating from "../StarRating/StarRating";
-
+import "./Reviews.scss";
 const Reviews = ({ reviews }) => {
 	return (
-		<div className="row row-cols-3 mb-2">
+		<div className="row row-cols-3 mb-2 ">
 			{reviews.map((review) => {
 				return (
 					<div
-						className="card text-white bg-primary m-3"
+						className="card text-white bg-primary m-3 --big-Entrance"
 						style={{ maxWidth: "30%" }}
 						key={review.id}
 					>

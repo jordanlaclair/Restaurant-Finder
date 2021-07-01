@@ -7,10 +7,8 @@
 	height: auto;
 	width: 500px;
 	background-color: transparent;
-	// 75% of original size
-	@include smMaxBreakPoint {
-		display: none;
-	}
+	overflow: hidden;
+
 	#left_table,
 	#right_table,
 	#bottom_table {
@@ -20,6 +18,16 @@
 		display: block;
 		width: 100%;
 		height: auto;
+	}
+
+	@include smMaxBreakPoint {
+		display: none;
+	}
+	@include xlMaxBreakPoint {
+		width: 400px;
+	}
+	@include mdMaxHeightBreakPoint {
+		display: none;
 	}
 }
 
