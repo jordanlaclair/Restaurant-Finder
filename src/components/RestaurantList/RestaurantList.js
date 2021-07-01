@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import RestaurantsFinder from "../../apis/RestaurantsFinder";
 import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
+import StarRating from "../StarRating/StarRating";
 import * as action from "../../store/actions/index";
 import "./RestaurantList.scss";
 
@@ -17,7 +18,7 @@ const RestaurantList = () => {
 		try {
 			async function fetchData() {
 				const response = await RestaurantsFinder.get("/");
-				console.log(response.data.data.restaurants);
+				//console.log(response.data.data.restaurants);
 
 				//setRestaurants(response.data.data.restaurants);
 				dispatch(action.setRestaurants(response.data.data.restaurants));
@@ -55,6 +56,18 @@ const RestaurantList = () => {
 
 	const handleRestaurantSelect = (id) => {
 		history.push(`/restaurants/${id}`);
+	};
+
+	const renderRating = (restaurant) => {
+		if (!restaurant.count) {
+			return <span className="text-warning">0 Reviews</span>;
+		}
+		return (
+			<div className="ratings__wrapper">
+				<StarRating rating={restaurant.average_rating} />
+				<div className="text-warning ml-1"> &nbsp; ({restaurant.count})</div>
+			</div>
+		);
 	};
 
 	return (
@@ -99,7 +112,7 @@ const RestaurantList = () => {
 											<td className="fw-bold">
 												{"$".repeat(restaurant.price_range)}
 											</td>
-											<td className="fw-bold">@</td>
+											<td className="fw-bold">{renderRating(restaurant)}</td>
 											<td>
 												<button
 													onClick={(e) => {

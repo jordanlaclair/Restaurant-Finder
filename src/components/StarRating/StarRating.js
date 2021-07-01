@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./StarRating.scss";
 const StarRating = ({ rating }) => {
 	const stars = [];
 	for (let i = 1; i <= 5; i++) {
@@ -11,7 +11,7 @@ const StarRating = ({ rating }) => {
 			stars.push(<i className="far fa-star text-warning"></i>);
 		}
 	}
-	return <>{stars}</>;
+	return <div className="star__rating">{stars}</div>;
 };
 
 export default StarRating;

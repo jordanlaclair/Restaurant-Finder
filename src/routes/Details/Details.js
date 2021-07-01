@@ -4,6 +4,7 @@ import RestaurantsFinder from "../../apis/RestaurantsFinder";
 import Reviews from "../../components/Reviews/Reviews";
 import AddReview from "../../components/AddReview/AddReview";
 import { useSelector, useDispatch } from "react-redux";
+import StarRating from "../../components/StarRating/StarRating";
 import * as action from "../../store/actions/index";
 import "./Details.scss";
 
@@ -56,6 +57,20 @@ const Details = () => {
 								<h2 className="display-8 fw-light m-0">
 									{"$".repeat(selectedRestaurant.restaurant.price_range)}
 								</h2>
+							</div>
+
+							<div className="me-2" style={{ fontSize: "5px" }}>
+								<i className="fas fa-circle"></i>
+							</div>
+
+							<div className="me-1 ratings__wrapper text-warning">
+								<StarRating
+									rating={selectedRestaurant.restaurant.average_rating}
+								/>
+								<span>
+									{" "}
+									&nbsp; ({selectedRestaurant.restaurant.average_rating})
+								</span>
 							</div>
 						</div>
 					</div>

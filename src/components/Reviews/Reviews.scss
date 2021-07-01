@@ -1,4 +1,5 @@
 @import "../../assets/styles/placeholders";
+@import "../../assets/styles/mixins";
 
 .--cursor-pointer {
 	cursor: pointer;
@@ -6,6 +7,16 @@
 
 .--big-Entrance {
 	@extend %--big-Entrance;
+}
+
+.review__header {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	@include mdMaxBreakPoint {
+		flex-direction: column;
+	}
 }
 
 @keyframes bigEntrance {

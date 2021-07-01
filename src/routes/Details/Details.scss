@@ -3,7 +3,9 @@
 .--fade-In {
 	@extend %--fade-In;
 }
-
+.ratings__wrapper {
+	white-space: nowrap;
+}
 @keyframes fadeIn {
 	from {
 		opacity: 0;
