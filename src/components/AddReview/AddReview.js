@@ -11,6 +11,7 @@ const AddReview = () => {
 	const location = useLocation();
 	const history = useHistory();
 	console.log(location);
+
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {

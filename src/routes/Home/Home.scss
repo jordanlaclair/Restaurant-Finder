@@ -1,0 +1,11 @@
+.home {
+	&__footer {
+		position: fixed;
+		z-index: -1;
+		width: 100vw;
+		height: auto;
+		background-color: transparent;
+		bottom: 0px;
+		left: 0px;
+	}
+}
