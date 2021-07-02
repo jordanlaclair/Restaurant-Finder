@@ -29,7 +29,7 @@ const AddReview = () => {
 	};
 
 	return (
-		<div className="mb-2 mt-3 container --fade-In">
+		<div className="py-5 mb-2 mt-3 container --fade-In">
 			<form action="">
 				<div className="d-flex justify-content-start">
 					<div className="d-flex flex-column  align-items-start col-7 me-4">

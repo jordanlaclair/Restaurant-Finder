@@ -8,14 +8,25 @@
 .--big-Entrance {
 	@extend %--big-Entrance;
 }
+.review {
+	&__header {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+		@include mdMaxBreakPoint {
+			flex-direction: column;
+		}
+	}
 
-.review__header {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: space-between;
-	@include mdMaxBreakPoint {
-		flex-direction: column;
+	&__wrapper {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+
+		grid-auto-rows: minmax(min-content, max-content);
+		@include mdMaxBreakPoint {
+			grid-template-columns: 1fr;
+		}
 	}
 }
 

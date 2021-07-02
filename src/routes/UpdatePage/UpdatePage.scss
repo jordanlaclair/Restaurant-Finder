@@ -1,0 +1,23 @@
+@import "../../assets/styles/placeholders";
+
+.--fade-In {
+	@extend %--fade-In;
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@-webkit-keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}

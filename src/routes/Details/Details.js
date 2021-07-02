@@ -42,14 +42,17 @@ const Details = () => {
 				<>
 					<div className="p-5 d-flex flex-column justify-content-center align-items-center --fade-In">
 						<h1 className=" display-2">{selectedRestaurant.restaurant.name}</h1>
-						<div className="d-flex justify-content-center align-items-center">
+						<div className="details__wrapper">
 							<div className="me-2">
 								<h2 className="display-6">
 									{selectedRestaurant.restaurant.location}
 								</h2>
 							</div>
 
-							<div className="me-2" style={{ fontSize: "5px" }}>
+							<div
+								className="me-2 details__wrapper__dot"
+								style={{ fontSize: "5px" }}
+							>
 								<i className="fas fa-circle"></i>
 							</div>
 
@@ -59,7 +62,10 @@ const Details = () => {
 								</h2>
 							</div>
 
-							<div className="me-2" style={{ fontSize: "5px" }}>
+							<div
+								className="me-2 details__wrapper__dot"
+								style={{ fontSize: "5px" }}
+							>
 								<i className="fas fa-circle"></i>
 							</div>
 							{selectedRestaurant.reviews.length > 0 ? (

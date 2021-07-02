@@ -1,10 +1,28 @@
-@import "../../assets/styles/_placeholders.scss";
+@import "../../assets/styles/placeholders.scss";
+@import "../../assets/styles/mixins.scss";
 
 .--fade-In {
 	@extend %--fade-In;
 }
 .ratings__wrapper {
 	white-space: nowrap;
+}
+.details {
+	&__wrapper {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		@include smMaxBreakPoint {
+			flex-direction: column;
+		}
+
+		&__dot {
+			@include smMaxBreakPoint {
+				margin: 7px;
+			}
+		}
+	}
 }
 @keyframes fadeIn {
 	from {

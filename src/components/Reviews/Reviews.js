@@ -3,12 +3,11 @@ import StarRating from "../StarRating/StarRating";
 import "./Reviews.scss";
 const Reviews = ({ reviews }) => {
 	return (
-		<div className="row  justify-content-center mb-2 ">
+		<div className="review__wrapper justify-content-center mb-2 ">
 			{reviews.map((review) => {
 				return (
 					<div
-						className="  card text-white bg-primary m-3 --big-Entrance review"
-						style={{ maxWidth: "30%" }}
+						className="card text-white bg-primary m-3 --big-Entrance review"
 						key={review.id}
 					>
 						<div className="card-header review__header">
@@ -17,7 +16,7 @@ const Reviews = ({ reviews }) => {
 								<StarRating rating={review.rating} />
 							</div>
 						</div>
-						<div className="card-body">
+						<div className="card-body d-flex flex-column justify-content-center align-items-center">
 							<p className="card-text">{review.review}</p>
 						</div>
 					</div>
