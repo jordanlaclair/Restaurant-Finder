@@ -1,9 +1,8 @@
-//require("dotenv").config();
+require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const app = express();
 const db = require("./db/index.js");
-var bodyParser = require("body-parser");
 
 const path = require("path");
 //gets value PORT from .env file
@@ -15,14 +14,12 @@ const PORT = process.env.PORT || 5001;
 app.use(cors());
 //converts json from client to object into the body and allows req.body to work
 app.use(express.json());
-app.use(express.static(path.join(__dirname, "client/build")));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+//app.use(express.static(path.join(__dirname, "client/build")));
 
-/* if (process.env.NODE_ENV === "production") {
+if (process.env.NODE_ENV === "production") {
 	//serve static content
 	app.use(express.static(path.join(__dirname, "client/build")));
-} */
+}
 
 //GET ALL RESTAURANTS
 //res is the response we send back
