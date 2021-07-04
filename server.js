@@ -6,7 +6,6 @@ const db = require("./db/index.js");
 
 const path = require("path");
 //gets value PORT from .env file
-
 //first option is port, if that doesnt exist, then use port 5001
 const PORT = process.env.PORT || 5001;
 
