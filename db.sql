@@ -14,7 +14,7 @@ CREATE TABLE restaurants(
     name VARCHAR(50) NOT NULL, 
     location VARCHAR(50) NOT NULL,
     price_range INT NOT NULL check(price_range>=1 and price_range <= 5)
-)
+);
 
 
 INSERT INTO restaurants (id, name, location, price_range) values (123, 'McDonalds', 'New York', 3 )
@@ -29,7 +29,7 @@ select * from restaurants left join (select restaurant_id, COUNT(*), TRUNC(AVG(r
 --references points to restaurant table id
 CREATE TABLE reviews(
     id BIGSERIAL NOT NULL PRIMARY KEY,
-    restaurant_id  BIGINT  NOT NULL REFERENCES restaurants(id),
+    restaurant_id  BIGINT  NOT NULL REFERENCES restaurants(id) ON DELETE CASCADE,
     name VARCHAR(50) NOT NULL,
     review TEXT NOT NULL,
     rating INT NOT NULL check(rating >= 1 and rating <= 5) 
