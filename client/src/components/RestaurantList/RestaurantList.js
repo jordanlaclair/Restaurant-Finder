@@ -84,7 +84,7 @@ const RestaurantList = () => {
 					</div>
 				</div>
 			) : (
-				<div className="table table-responsive-sm">
+				<div className="table table-responsive-sm table__wrapper">
 					<table className="table table-hover table-striped table-secondary">
 						<thead className="table-dark">
 							<tr>
