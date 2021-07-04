@@ -26,8 +26,10 @@ const proConfig = {
 
 //Pool uses default environment variables if empty, or use an object
 const pool = new Pool({
-	connectionString:
-	  process.env.NODE_ENV === "production" ? proConfig : devConfig,
+	connectionString: process.env.DATABASE_URL,	// use DATABASE_URL environment variable from Heroku app 
+  ssl: {
+    rejectUnauthorized: false // don't check for SSL cert
+  }
   });
   
   module.exports = {
