@@ -3,7 +3,10 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 const db = require("./db/index.js");
+
+const path = require("path");
 //gets value PORT from .env file
+
 //first option is port, if that doesnt exist, then use port 5001
 const PORT = process.env.PORT || 5001;
 
@@ -11,6 +14,12 @@ const PORT = process.env.PORT || 5001;
 app.use(cors());
 //converts json from client to object into the body and allows req.body to work
 app.use(express.json());
+app.use(express.static(path.join(__dirname, "client/build")));
+
+if (process.env.NODE_ENV === "production") {
+	//serve static content
+	app.use(express.static(path.join(__dirname, "client/build")));
+}
 
 //GET ALL RESTAURANTS
 //res is the response we send back
@@ -141,6 +150,11 @@ app.post("/api/v1/restaurants/:id/addReview", async (req, res) => {
 	} catch (error) {
 		console.error(error);
 	}
+});
+
+app.get("*", (req, res) => {
+	// sends user back to build if they go to unknown route
+	res.sendFile(path.join(__dirname, "client/build/index.html"));
 });
 
 app.listen(PORT, () => {

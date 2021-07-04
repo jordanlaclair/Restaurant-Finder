@@ -3,9 +3,14 @@
 	"version": "1.0.0",
 	"description": "Practice with React and Express",
 	"main": "server.js",
+	"engines": {
+		"node": "14.17.1",
+		"npm": "7.19.0"
+	},
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"start": "node server.js"
+		"start": "node server.js",
+		"heroku-postbuild": "cd client && npm install && npm run build"
 	},
 	"author": "Jordan Molina",
 	"license": "MIT",
