@@ -2,7 +2,7 @@
 
 ## Live Demo
 
-🟢 [Live Demo](https://yelp-review-restaurants.herokuapp.com/) 🟢
+~~ 🟢 [Live Demo](https://yelp-review-restaurants.herokuapp.com/) 🟢 ~~ Heroku removed their free tier and deleted my account/data lol
 
 ## General Information
 
